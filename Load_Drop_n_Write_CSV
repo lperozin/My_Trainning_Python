@@ -1,0 +1,32 @@
+Loading Dropping and Write a file
+
+#Importing libraries
+import pandas as pd
+import numpy as np
+
+#loading into a dataframe using pandas
+data = pd.read_csv('file.csv',encoding='utf-8',sep=";")
+
+#exploring the dataframe
+data['Year_Month'].count()
+329
+
+#reading top 10 rows
+data.head(10)
+Year_Month	BusinessUnit_ID	VL
+0	2010/06	2	8562.500
+1	2010/06	7	1632.500
+2	2010/07	7	0.000
+3	2010/07	2	1153650.225
+4	2010/07	3	38434.250
+5	2010/08	2	4633221.225
+6	2010/08	3	258313.650
+7	2010/08	7	85.000
+8	2010/09	4	2882661.250
+9	2010/09	7	6695.000
+
+#Dropping unecessary rows
+new_data=data[data.Year_Month != '2018']
+
+#Writting new file
+new_data.to_csv('new_file.csv')
